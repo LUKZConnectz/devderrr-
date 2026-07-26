@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>tip.gap.bo — ติ๊บแก๊ปโบ้</title>
+    <meta name="description" content="ส่งกำลังใจถึงแก๊ปโบ้ผ่านการติ๊บ" />
+    <style>
+      :root {
+        --accent: #ff6f3c;
+        --accent-soft: #fff0e9;
+        --bg: #faf1e1;
+        --card: #ffffff;
+        --ink: #1f1a14;
+        --ink-soft: #75685d;
+        --border: rgba(31, 26, 20, 0.12);
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      .marquee {
+        overflow: hidden;
+        border-bottom: 1px solid var(--border);
+        background: var(--card);
+        color: var(--ink-soft);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .marquee__track {
+        display: flex;
+        width: max-content;
+        animation: scroll 22s linear infinite;
+      }
+
+      .marquee__copy {
+        display: flex;
+        gap: 28px;
+        padding: 10px 14px;
+      }
+
+      .dot {
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        margin-right: 8px;
+        border-radius: 50%;
+        background: #9b9287;
+      }
+
+      @keyframes scroll {
+        from { transform: translateX(0); }
+        to { transform: translateX(-50%); }
+      }
+
+      .shell {
+        width: min(1180px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 24px 0 48px;
+      }
+
+      .nav {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 18px;
+      }
+
+      .nav a {
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        padding: 8px 14px;
+        background: rgba(255, 255, 255, 0.55);
+        color: var(--ink-soft);
+        text-decoration: none;
+        font-weight: 700;
+      }
+
+      .nav a[aria-current="page"] {
+        background: var(--ink);
+        color: var(--card);
+      }
+
+      .cover {
+        min-height: 180px;
+        border-radius: 28px;
+        background: linear-gradient(135deg, #ffd4b8, var(--accent), #efd9b0);
+        margin-bottom: 22px;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.1fr) minmax(280px, 420px);
+        gap: 22px;
+        align-items: start;
+      }
+
+      .card {
+        border: 1px solid var(--border);
+        border-radius: 22px;
+        background: var(--card);
+        padding: 28px 26px;
+        box-shadow: 0 1px 0 rgba(0,0,0,0.04), 0 4px 8px rgba(0,0,0,0.03), 0 16px 28px rgba(0,0,0,0.05);
+      }
+
+      h1 {
+        margin: 0 0 14px;
+        font-size: clamp(34px, 6vw, 64px);
+        line-height: 0.9;
+      }
+
+      .hero {
+        width: 100%;
+        aspect-ratio: 5 / 2;
+        border-radius: 18px;
+        object-fit: cover;
+        background: var(--accent-soft);
+      }
+
+      .socials {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 16px;
+      }
+
+      .socials a, .link-pill {
+        display: inline-flex;
+        align-items: center;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        padding: 6px 12px;
+        color: var(--ink-soft);
+        text-decoration: none;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+
+      .notes { margin-top: 22px; }
+      .eyebrow { color: var(--ink-soft); font-size: 12px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+      .body { color: var(--ink-soft); line-height: 1.7; }
+
+      .form { position: sticky; top: 18px; }
+      label { display: block; margin-bottom: 8px; font-size: 13px; font-weight: 800; color: var(--ink-soft); }
+      input, textarea, button { font: inherit; }
+      input, textarea {
+        width: 100%;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 12px 14px;
+        background: #fffaf4;
+      }
+      .field { margin-top: 16px; }
+      .amounts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 10px; }
+      .amounts button, .pay, .cta {
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 12px;
+        background: #fffaf4;
+        font-weight: 800;
+      }
+      .pay { width: 100%; margin-bottom: 8px; text-align: left; }
+      .pay[aria-pressed="true"] { border-color: var(--accent); background: var(--accent-soft); }
+      .cta { width: 100%; margin-top: 16px; background: var(--accent); color: white; border-color: var(--accent); }
+      .cta:disabled { opacity: .55; }
+
+      footer { margin-top: 28px; text-align: center; color: var(--ink-soft); }
+      footer a { color: inherit; }
+
+      @media (max-width: 820px) {
+        .grid { grid-template-columns: 1fr; }
+        .form { position: static; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="marquee" role="status" aria-live="polite" aria-label="ออฟไลน์">
+      <div class="marquee__track">
+        <div class="marquee__copy" aria-hidden="false">
+          <span><span class="dot"></span>OFFLINE</span><span><span class="dot"></span>OFFLINE</span><span><span class="dot"></span>OFFLINE</span><span><span class="dot"></span>OFFLINE</span>
+        </div>
+        <div class="marquee__copy" aria-hidden="true">
+          <span><span class="dot"></span>OFFLINE</span><span><span class="dot"></span>OFFLINE</span><span><span class="dot"></span>OFFLINE</span><span><span class="dot"></span>OFFLINE</span>
+        </div>
+      </div>
+    </div>
+
+    <main class="shell">
+      <nav class="nav" aria-label="Main">
+        <a aria-current="page" href="/">Home</a>
+        <a href="/leaderboard">Leaderboard</a>
+        <a href="/guestbook">Guestbook</a>
+        <a href="/queue">Queue</a>
+      </nav>
+
+      <div class="cover" aria-hidden="true"></div>
+
+      <div class="grid">
+        <section>
+          <article class="card">
+            <h1>แก๊ปโบ้ <span aria-hidden="true">|</span> gapbo</h1>
+            <img class="hero" src="images/brand/hero-warhol.jpg" alt="แก๊ปโบ้" />
+            <div class="socials">
+              <a href="https://youtube.com/@gapbo">YouTube</a>
+              <a href="https://tiktok.com/@sirasimmee">TikTok</a>
+              <a href="https://instagram.com/gapbo">Instagram</a>
+              <a href="https://shop.gap.bo">Shop</a>
+            </div>
+            <p class="body">มีสองร้อยคนคนไหนเป็นคนอีสาน...</p>
+          </article>
+
+          <article class="card notes">
+            <div class="eyebrow">Notes</div>
+            <p class="body">วอฟเฟิลแบด แจ็กเก็ตแอ็กชั่น สตริง ไบโอเอ็กซ์โป แบตคอมเพล็กซ์สามช่า พาสเจอร์ไรส์งั้นคีตราชัน เช็กอัลบัมฮ็อตเซี้ยวอ่วม อึ้มกลาส แซ็กโซโฟนสลัม ตรวจทานเดบิตอวอร์ด เทรนด์ซูโม่สแล็กเวิร์กปัจฉิมนิเทศ</p>
+            <p class="body">บอยคอต รีดไถเพาเวอร์ติงต๊องเวอร์โมเดล เจ๊าะแจ๊ะเลคเชอร์แบรนด์เชฟเพรียวบาง ปอดแหกซาบะเอ๋ โฮลวีตเมจิกวิลเลจเวิร์ก บ๋อยตาปรือ ช็อปสตรอเบอร์รี แดนเซอร์ฮอต</p>
+          </article>
+        </section>
+
+        <aside id="donate-form" class="form">
+          <form class="card">
+            <div class="eyebrow">Support Gapbo</div>
+            <h2>Send a tip</h2>
+
+            <div class="field">
+              <label for="name">Your name</label>
+              <input id="name" type="text" maxlength="50" />
+            </div>
+
+            <div class="field">
+              <label for="message">Add a message <span>(0 / 250)</span></label>
+              <textarea id="message" maxlength="250" rows="3" placeholder="We'll save it in the guestbook"></textarea>
+            </div>
+
+            <div class="field">
+              <label>วิธีจ่าย</label>
+              <a class="link-pill" href="https://www.tipme.in.th/gapbo">ติ๊บผ่าน TipMe →</a>
+              <button class="pay" type="button" aria-pressed="true">PromptPay</button>
+              <button class="pay" type="button" aria-pressed="false">🎁 ใช้แต้มแลก</button>
+            </div>
+
+            <div class="field">
+              <label>Choose an amount</label>
+              <div class="amounts">
+                <button type="button">20</button>
+                <button type="button">50</button>
+                <button type="button">80</button>
+                <button type="button">100</button>
+              </div>
+              <input type="number" min="20" max="50000" step="0.01" placeholder="Or type a custom amount (min 20)" />
+            </div>
+
+            <button class="cta" type="submit" disabled>Pick an amount</button>
+          </form>
+        </aside>
+      </div>
+
+      <footer><a href="/status">status</a> · <a href="/terms">terms</a> · <a href="/privacy">privacy</a></footer>
+    </main>
+  </body>
+</html>
