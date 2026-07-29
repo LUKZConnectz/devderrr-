@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#6366f1" />
+    <title>เข้าสู่ระบบ - Fusions</title>
+    <meta name="description" content="เข้าสู่ระบบ Fusions เพื่อจัดการหน้าโปรไฟล์ลิงก์ของคุณ" />
+    <meta property="og:title" content="เข้าสู่ระบบ - Fusions" />
+    <meta property="og:description" content="เข้าสู่ระบบ Fusions เพื่อจัดการหน้าโปรไฟล์ลิงก์และโซเชียลของคุณ" />
+    <meta property="og:url" content="https://fusions.info/login" />
+    <meta property="og:site_name" content="Fusions" />
+    <meta property="og:locale" content="th_TH" />
+    <meta property="og:image" content="https://img2.pic.in.th/fusion-6.png" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="เข้าสู่ระบบ - Fusions" />
+    <meta name="twitter:description" content="เข้าสู่ระบบ Fusions เพื่อจัดการหน้าโปรไฟล์ลิงก์และโซเชียลของคุณ" />
+    <meta name="twitter:image" content="https://img2.pic.in.th/fusion-6.png" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <nav class="navbar" aria-label="หลัก">
+      <div class="nav-shell">
+        <a class="brand" href="/" aria-label="Fusions home"><span class="logo-mark">F</span></a>
+        <div class="nav-links" id="nav-links">
+          <a href="/">หน้าหลัก</a><a href="/package">แพ็กเกจ</a><a href="/leaderboard">อันดับ</a><a href="/topup">เติมเงิน</a><a href="https://discord.gg/sayabot" target="_blank" rel="noopener noreferrer">ติดต่อเรา</a>
+        </div>
+        <div class="nav-actions">
+          <div class="desktop-actions"><a class="btn btn-ghost" href="/login" aria-current="page">Login</a><a class="btn btn-dark" href="/register">Register</a></div>
+          <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle Menu"><span></span><span></span><span></span></button>
+        </div>
+      </div>
+      <div class="mobile-menu" id="mobile-menu">
+        <a href="/">หน้าหลัก</a><a href="/package">แพ็กเกจ</a><a href="/leaderboard">อันดับ</a><a href="/topup">เติมเงิน</a><a href="https://discord.gg/sayabot" target="_blank" rel="noopener noreferrer">ติดต่อเรา</a>
+        <hr /><a class="mobile-login" href="/login" aria-current="page">Login</a><a class="mobile-register" href="/register">Register</a>
+      </div>
+    </nav>
+
+    <main class="login-page">
+      <section class="login-card" aria-labelledby="login-title">
+        <div class="login-heading">
+          <h1 id="login-title">เข้าสู่ระบบ <span>Fusions</span></h1>
+          <p>กลับมาจัดการโปรไฟล์และลิงก์ทั้งหมดของคุณ</p>
+        </div>
+
+        <form class="login-form" action="#" method="post">
+          <div class="form-stack">
+            <input type="email" name="email" placeholder="อีเมล" autocomplete="email" required />
+            <input type="password" name="password" placeholder="รหัสผ่าน" autocomplete="current-password" required minlength="6" />
+          </div>
+
+          <div class="login-options">
+            <label><input type="checkbox" name="remember" /> จดจำการเข้าสู่ระบบ</label>
+            <a href="/forgot-password">ลืมรหัสผ่าน?</a>
+          </div>
+
+          <div class="recaptcha-slot" id="recaptcha-login" aria-label="reCAPTCHA"></div>
+
+          <div class="submit-stack">
+            <button class="login-submit" type="submit">เข้าสู่ระบบ</button>
+            <p>หน้านี้ป้องกันด้วย reCAPTCHA และอยู่ภายใต้ <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">นโยบายความเป็นส่วนตัว</a> และ <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer">ข้อกำหนดการให้บริการ</a> ของ Google</p>
+          </div>
+        </form>
+
+        <div class="login-links">
+          <a href="/register">ยังไม่มีบัญชี Fusion? สมัครสมาชิก</a>
+          <a href="/">กลับหน้าแรก</a>
+        </div>
+      </section>
+    </main>
+
+    <footer><div class="footer-inner"><p>© 2026 Fusions. All rights reserved.</p><div><a href="/terms">Terms</a><a href="/privacy">Privacy</a><a href="/cookie-policy">Cookies</a><a href="/copyright">Copyright</a></div></div></footer>
+    <script src="../script.js"></script>
+  </body>
+</html>
