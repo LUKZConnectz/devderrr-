@@ -1,12 +1,15 @@
+// script.js (แก้บัค)
 const menuButton = document.querySelector('.menu-button');
 const mobileMenu = document.querySelector('#mobile-menu');
 
-menuButton?.addEventListener('click', () => {
-  const isOpen = mobileMenu.classList.toggle('open');
-  menuButton.setAttribute('aria-expanded', String(isOpen));
-});
+if (menuButton && mobileMenu) {
+  menuButton.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.toggle('open');
+    menuButton.setAttribute('aria-expanded', String(isOpen));
+  });
+}
 
-
+// Password strength
 const passwordInput = document.querySelector('[data-password-input]');
 const passwordStrength = document.querySelector('.password-strength');
 const strengthLabel = document.querySelector('[data-strength-label]');
@@ -23,8 +26,28 @@ const getPasswordScore = (password) => {
 
 const strengthText = ['กรอกรหัสผ่าน', 'อ่อน', 'พอใช้', 'ปานกลาง', 'ดี', 'แข็งแรง'];
 
-passwordInput?.addEventListener('input', (event) => {
-  const score = getPasswordScore(event.target.value);
-  passwordStrength?.setAttribute('data-score', String(score));
-  if (strengthLabel) strengthLabel.textContent = strengthText[score];
-});
+if (passwordInput && passwordStrength && strengthLabel) {
+  const bars = passwordStrength.querySelectorAll('.strength-bars span');
+
+  // ตั้งค่าเริ่มต้น
+  passwordStrength.setAttribute('data-score', '0');
+  strengthLabel.textContent = strengthText[0];
+
+  passwordInput.addEventListener('input', (event) => {
+    const val = event.target.value ?? '';
+    const score = getPasswordScore(val);
+    passwordStrength.setAttribute('data-score', String(score));
+    strengthLabel.textContent = strengthText[score] || strengthText[0];
+
+    // อัปเดตแถบแสดงความแข็งแรง ถ้ามี
+    if (bars && bars.length) {
+      bars.forEach((bar, i) => {
+        if (i < score) {
+          bar.classList.add('active');
+        } else {
+          bar.classList.remove('active');
+        }
+      });
+    }
+  });
+}
