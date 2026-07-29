@@ -1,0 +1,35 @@
+/* fonts.css — add Kanit font and utility classes */
+:root{
+  --kanit: "Kanit", sans-serif;
+}
+
+html, body, input, textarea, select, button, a, label {
+  font-family: var(--kanit) !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* utility class */
+.kanit { font-family: var(--kanit) !important; }
+
+/* weights (non-italic) */
+.kanit-thin{font-weight:100;font-style:normal}
+.kanit-extralight{font-weight:200;font-style:normal}
+.kanit-light{font-weight:300;font-style:normal}
+.kanit-regular{font-weight:400;font-style:normal}
+.kanit-medium{font-weight:500;font-style:normal}
+.kanit-semibold{font-weight:600;font-style:normal}
+.kanit-bold{font-weight:700;font-style:normal}
+.kanit-extrabold{font-weight:800;font-style:normal}
+.kanit-black{font-weight:900;font-style:normal}
+
+/* italic variants */
+.kanit-thin-italic{font-weight:100;font-style:italic}
+.kanit-extralight-italic{font-weight:200;font-style:italic}
+.kanit-light-italic{font-weight:300;font-style:italic}
+.kanit-regular-italic{font-weight:400;font-style:italic}
+.kanit-medium-italic{font-weight:500;font-style:italic}
+.kanit-semibold-italic{font-weight:600;font-style:italic}
+.kanit-bold-italic{font-weight:700;font-style:italic}
+.kanit-extrabold-italic{font-weight:800;font-style:italic}
+.kanit-black-italic{font-weight:900;font-style:italic}
