@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#6366f1" />
+    <title>สมัครสมาชิก - Fusions</title>
+    <meta name="description" content="สร้างบัญชี Fusions เพื่อเริ่มสร้างหน้าโปรไฟล์ลิงก์ของคุณ" />
+    <meta property="og:title" content="Fusions - รวมทุกตัวตนไว้ในลิงก์เดียว" />
+    <meta property="og:description" content="สร้างหน้าโปรไฟล์ลิงก์ของคุณได้ง่าย จัดวางสวย และปรับแต่งโซเชียลได้ไวในไม่กี่คลิก" />
+    <meta property="og:url" content="https://fusions.info/register" />
+    <meta property="og:site_name" content="Fusions" />
+    <meta property="og:locale" content="th_TH" />
+    <meta property="og:image" content="https://img2.pic.in.th/fusion-6.png" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Fusions - รวมทุกตัวตนไว้ในลิงก์เดียว" />
+    <meta name="twitter:description" content="สร้างหน้าโปรไฟล์ลิงก์ของคุณได้ง่าย จัดวางสวย และปรับแต่งโซเชียลได้ไวในไม่กี่คลิก" />
+    <meta name="twitter:image" content="https://img2.pic.in.th/fusion-6.png" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <nav class="navbar" aria-label="หลัก">
+      <div class="nav-shell">
+        <a class="brand" href="/" aria-label="Fusions home"><span class="logo-mark">F</span></a>
+        <div class="nav-links" id="nav-links">
+          <a href="/">หน้าหลัก</a><a href="/package">แพ็กเกจ</a><a href="/leaderboard">อันดับ</a><a href="/topup">เติมเงิน</a><a href="https://discord.gg/sayabot" target="_blank" rel="noopener noreferrer">ติดต่อเรา</a>
+        </div>
+        <div class="nav-actions">
+          <div class="desktop-actions"><a class="btn btn-ghost" href="/login">Login</a><a class="btn btn-dark" href="/register">Register</a></div>
+          <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle Menu"><span></span><span></span><span></span></button>
+        </div>
+      </div>
+      <div class="mobile-menu" id="mobile-menu">
+        <a href="/">หน้าหลัก</a><a href="/package">แพ็กเกจ</a><a href="/leaderboard">อันดับ</a><a href="/topup">เติมเงิน</a><a href="https://discord.gg/sayabot" target="_blank" rel="noopener noreferrer">ติดต่อเรา</a>
+        <hr /><a class="mobile-login" href="/login">Login</a><a class="mobile-register" href="/register">Register</a>
+      </div>
+    </nav>
+
+    <main class="register-page">
+      <section class="register-card" aria-labelledby="register-title">
+        <div class="register-heading">
+          <h1 id="register-title">สร้างบัญชี <span>Fusions</span> ของคุณ</h1>
+          <p>สร้างโปรไฟล์ของคุณเพื่อเริ่มใช้งาน</p>
+        </div>
+
+        <form class="register-form" action="#" method="post">
+          <div class="form-stack">
+            <div class="field-group">
+              <input type="text" name="username" placeholder="ชื่อผู้ใช้" required minlength="3" maxlength="20" pattern="^[a-z0-9_]{3,20}$" title="3-20 ตัว a-z, 0-9, _ เท่านั้น" />
+              <p>* 3-20 ตัว (a-z, 0-9, _ เท่านั้น) ไม่ซ้ำแบบไม่สนตัวพิมพ์ใหญ่-เล็ก</p>
+            </div>
+            <input type="email" name="email" placeholder="อีเมล" required />
+            <div class="password-group">
+              <input type="password" name="password" placeholder="รหัสผ่าน (อย่างน้อย 6 ตัวอักษร)" required minlength="6" data-password-input />
+              <div class="password-strength" aria-live="polite">
+                <div class="strength-bars" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+                <strong data-strength-label>กรอกรหัสผ่าน</strong>
+              </div>
+            </div>
+            <input type="password" name="confirm-password" placeholder="ยืนยันรหัสผ่าน" required minlength="6" />
+          </div>
+
+          <div class="recaptcha-slot" id="recaptcha-register" aria-label="reCAPTCHA"></div>
+
+          <div class="terms-summary">
+            <p>สรุปเงื่อนไขก่อนสมัคร (ฉบับย่อ)</p>
+            <ul>
+              <li>ห้ามใช้บริการเพื่อการผิดกฎหมาย สแปม หลอกลวง หรืออัปโหลดเนื้อหาที่ละเมิดสิทธิผู้อื่น</li>
+              <li>เครดิตในระบบเป็นสิทธิใช้งานภายในแพลตฟอร์ม และอาจไม่สามารถขอคืนเงินได้ตามเงื่อนไข</li>
+              <li>ผู้ให้บริการอาจระงับบัญชีที่ฝ่าฝืนข้อกำหนดเพื่อความปลอดภัยของระบบ</li>
+            </ul>
+            <span>ดูรายละเอียดเพิ่มเติมที่ <a href="/terms">ข้อกำหนดการให้บริการ</a> และ <a href="/privacy">นโยบายความเป็นส่วนตัว</a></span>
+          </div>
+
+          <div class="submit-stack">
+            <button class="register-submit" type="submit" disabled>สมัครสมาชิก</button>
+            <p>หน้านี้ป้องกันด้วย reCAPTCHA และอยู่ภายใต้ <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">นโยบายความเป็นส่วนตัว</a> และ <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer">ข้อกำหนดการให้บริการ</a> ของ Google</p>
+          </div>
+        </form>
+
+        <div class="register-links">
+          <a href="/login">มีบัญชี Fusion อยู่แล้ว? ลงชื่อเข้าใช้</a>
+          <a href="/">กลับหน้าแรก</a>
+        </div>
+      </section>
+    </main>
+
+    <footer><div class="footer-inner"><p>© 2026 Fusions. All rights reserved.</p><div><a href="/terms">Terms</a><a href="/privacy">Privacy</a><a href="/cookie-policy">Cookies</a><a href="/copyright">Copyright</a></div></div></footer>
+    <script src="../script.js"></script>
+  </body>
+</html>
