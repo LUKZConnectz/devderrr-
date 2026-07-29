@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HappyDonate - ระบบรับบริจาคสำหรับสตรีมเมอร์</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Sarabun', sans-serif; }
+        .gradient-bg { background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); }
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
+        .glow { box-shadow: 0 0 20px rgba(34, 197, 94, 0.5); }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.8; } }
+        .pulse { animation: pulse 2s infinite; }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <img src="https://happydonate.app/icon.png" alt="HappyDonate" class="h-10 w-10">
+                    <span class="ml-2 text-xl font-bold text-gray-800">HappyDonate</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-600 hover:text-gray-900">หน้าแรก</a>
+                    <a href="#features" class="text-gray-600 hover:text-gray-900">ฟีเจอร์</a>
+                    <a href="#partners" class="text-gray-600 hover:text-gray-900">พาร์ทเนอร์</a>
+                    <a href="#pricing" class="text-gray-600 hover:text-gray-900">แพ็คเกจ</a>
+                    <a href="#faq" class="text-gray-600 hover:text-gray-900">คำถามที่พบบ่อย</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="#" class="text-gray-600 hover:text-gray-900">เข้าสู่ระบบ</a>
+                    <a href="#" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">เริ่มต้นใช้งาน</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="gradient-bg text-white py-20">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">ระบบรับบริจาคสำหรับสตรีมเมอร์</h1>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">ระบบที่ช่วยให้สตรีมเมอร์สามารถรับบริจาคได้ง่าย สะดวก ปลอดภัย ผ่านหลายช่องทาง และเห็นผลแบบเรียลไทม์</p>
+            <div class="flex justify-center space-x-4">
+                <a href="#" class="bg-green-600 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-green-700 transition glow">เริ่มรับบริจาค</a>
+                <a href="#partners" class="border border-white text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-white hover:text-gray-900 transition">ดูพาร์ทเนอร์ของเรา</a>
+            </div>
+            
+            <!-- Stats -->
+            <div class="grid grid-cols-3 gap-8 mt-16 max-w-3xl mx-auto">
+                <div>
+                    <div class="text-3xl font-bold text-green-400">5,000+</div>
+                    <div class="text-gray-400">ผู้ใช้งาน</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-bold text-green-400">10 ล้าน+</div>
+                    <div class="text-gray-400">ยอดบริจาค</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-bold text-green-400">7</div>
+                    <div class="text-gray-400">ช่องทางการชำระเงิน</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-4">ฟีเจอร์เด่นของเรา</h2>
+            <p class="text-gray-600 text-center mb-12 max-w-2xl mx-auto">เรามีฟีเจอร์ครบครันที่ตอบโจทย์สตรีมเมอร์ทุกคน</p>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="card-hover bg-gray-50 p-8 rounded-xl">
+                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">ไม่มีค่าธรรมเนียม</h3>
+                    <p class="text-gray-600">รับเงินบริจาคเต็มจำนวน ไม่มีการหักค่าธรรมเนียมใดๆ ทั้งสิ้น</p>
+                </div>
+                <!-- Feature 2 -->
+                <div class="card-hover bg-gray-50 p-8 rounded-xl">
+                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">ปลอดภัย 100%</h3>
+                    <p class="text-gray-600">ระบบรักษาความปลอดภัยระดับธนาคาร คุณสามารถมั่นใจได้</p>
+                </div>
+                <!-- Feature 3 -->
+                <div class="card-hover bg-gray-50 p-8 rounded-xl">
+                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" /></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">แจ้งเตือนผ่าน Discord</h3>
+                    <p class="text-gray-600">รับการแจ้งเตือนทันทีเมื่อมีผู้บริจาค ไม่พลาดทุกการสนับสนุน</p>
+                </div>
+                <!-- Feature 4 -->
+                <div class="card-hover bg-gray-50 p-8 rounded-xl">
+                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">เรียลไทม์</h3>
+                    <p class="text-gray-600">แสดงผลและอัปเดตสถานะแบบเรียลไทม์ ทันใจทันใส่</p>
+                </div>
+                <!-- Feature 5 -->
+                <div class="card-hover bg-gray-50 p-8 rounded-xl">
+                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" /></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">รองรับหลายช่องทาง</h3>
+                    <p class="text-gray-600">รองรับการชำระเงินผ่าน TrueMoney, ShopeePay และอื่นๆ อีกมากมาย</p>
+                </div>
+                <!-- Feature 6 -->
+                <div class="card-hover bg-gray-50 p-8 rounded-xl">
+                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4" /></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">ปรับแต่งได้</h3>
+                    <p class="text-gray-600">ปรับแต่งหน้ารับบริจาคและการแจ้งเตือนได้ตามใจคุณ</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section id="partners" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-4">พาร์ทเนอร์ของเรา</h2>
+            <p class="text-gray-600 text-center mb-12 max-w-2xl mx-auto">สตรีมเมอร์ชั้นนำที่ไว้วางใจให้เราดูแลระบบบริจาค</p>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Partner 1 -->
+                <div class="card-hover bg-white p-6 rounded-xl shadow-sm">
+                    <img src="https://via.placeholder.com/100" alt="Saya Dev" class="w-20 h-20 rounded-full mx-auto mb-4">
+                    <h3 class="text-xl font-bold text-center mb-2">Saya Dev</h3>
+                    <p class="text-gray-500 text-center text-sm mb-4">เว็บไซต์: <a href="https://sa-ya.dev/" class="text-green-600">sa-ya.dev</a></p>
+                    <div class="flex flex-wrap justify-center gap-2">
+                        <span class="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm">TrueMoney Wallet</span>
+                        <span class="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm">ShopeePay</span>
+                        <span class="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm">Truemoney HNT</span>
+                    </div>
+                </div>
+                <!-- Partner 2 -->
+                <div class="card-hover bg-white p-6 rounded-xl shadow-sm">
+                    <img src="https://via.placeholder.com/100" alt="Fusions" class="w-20 h-20 rounded-full mx-auto mb-4">
+                    <h3 class="text-xl font-bold text-center mb-2">Fusions</h3>
+                    <p class="text-gray-500 text-center text-sm mb-4">เว็บไซต์: <a href="https://fusions.info/" class="text-green-600">fusions.info</a></p>
+                    <div class="flex flex-wrap justify-center gap-2">
+                        <span class="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm">TrueMoney Wallet</span>
+                        <span class="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm">ShopeePay</span>
+                        <span class="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm">Truemoney HNT</span>
+                    </div>
+                </div>
+                <!-- Partner 3 -->
+                <div class="card-hover bg-white p-6 rounded-xl shadow-sm">
+                    <img src="https://via.placeholder.com/100" alt="Vexzy" class="w-20 h-20 rounded-full mx-auto mb-4">
+                    <h3 class="text-xl font-bold text-center mb-2">Vexzy</h3>
+                    <p class="text-gray-500 text-center text-sm mb-4">เว็บไซต์: <a href="https://vexzy.net/" class="text-green-600">vexzy.net</a></p>
+                    <div class="flex flex-wrap justify-center gap-2">
+                        <span class="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm">TrueMoney Wallet</span>
+                        <span class="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm">ShopeePay</span>
+                        <span class="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm">Truemoney HNT</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-4">แพ็คเกจที่เหมาะกับคุณ</h2>
+            <p class="text-gray-600 text-center mb-12">เริ่มต้นใช้งานได้ฟรี ไม่มีค่าใช้จ่ายแอบแฝง</p>
+            
+            <div class="max-w-md mx-auto bg-gray-50 p-8 rounded-xl shadow-sm border border-gray-200">
+                <h3 class="text-2xl font-bold text-center mb-2">Basic</h3>
+                <p class="text-center text-gray-600 mb-6">สำหรับสตรีมเมอร์มือใหม่</p>
+                <div class="text-center mb-8">
+                    <span class="text-5xl font-bold">ฟรี</span>
+                    <span class="text-gray-600">/ตลอดไป</span>
+                </div>
+                <ul class="space-y-3 mb-8">
+                    <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg> ไม่จำกัดจำนวนบริจาค</li>
+                    <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg> รองรับทุกช่องทางการชำระเงิน</li>
+                    <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg> แจ้งเตือนผ่าน Discord</li>
+                    <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg> ปรับแต่งหน้ารับบริจาคได้</li>
+                    <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg> ไม่มีค่าธรรมเนียม</li>
+                </ul>
+                <button class="w-full bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition">เริ่มต้นใช้งานฟรี</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12">คำถามที่พบบ่อย</h2>
+            <div class="max-w-3xl mx-auto space-y-6">
+                <!-- FAQ 1 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <h3 class="text-xl font-bold mb-2 flex items-center justify-between">
+                        วิธีการใช้งานระบบ?
+                        <svg class="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                    </h3>
+                    <p class="text-gray-600">เพียงสมัครสมาชิก และเชื่อมต่อช่องทางการชำระเงินของคุณ คุณก็สามารถเริ่มรับบริจาคได้ทันที ไม่ต้องตั้งค่าใดๆ ให้ซับซ้อน</p>
+                </div>
+                <!-- FAQ 2 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <h3 class="text-xl font-bold mb-2 flex items-center justify-between">
+                        มีค่าใช้จ่ายในการสมัครหรือไม่?
+                        <svg class="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                    </h3>
+                    <p class="text-gray-600">ไม่มีค่าใช้จ่ายในการสมัครและใช้งาน และเราไม่มีการหักค่าธรรมเนียมจากยอดบริจาค คุณจะได้รับเงินเต็มจำนวน</p>
+                </div>
+                <!-- FAQ 3 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <h3 class="text-xl font-bold mb-2 flex items-center justify-between">
+                        ระบบรองรับช่องทางการชำระเงินอะไรบ้าง?
+                        <svg class="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                    </h3>
+                    <p class="text-gray-600">เรารองรับ TrueMoney Wallet, ShopeePay, Truemoney HNT, AIS eServce, AIS Konsambay, DTAC, Truemoney E-Money และการโอนผ่านธนาคาร</p>
+                </div>
+                <!-- FAQ 4 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <h3 class="text-xl font-bold mb-2 flex items-center justify-between">
+                        ระบบแจ้งเตือนทำงานอย่างไร?
+                        <svg class="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                    </h3>
+                    <p class="text-gray-600">คุณสามารถเชื่อมต่อ Discord ของคุณกับระบบ เมื่อมีผู้บริจาคเข้ามา ระบบจะส่งข้อความแจ้งเตือนไปยัง Discord ของคุณทันที</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="bg-green-600 text-white py-20">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-6">พร้อมที่จะเริ่มรับบริจาคแล้วหรือยัง?</h2>
+            <p class="text-xl mb-8">เข้าร่วมกับ HappyDonate วันนี้ ฟรี ไม่มีค่าใช้จ่าย</p>
+            <a href="#" class="bg-white text-green-600 px-8 py-3 rounded-lg text-lg font-semibold hover:bg-gray-100 transition">สมัครเลย</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <img src="https://happydonate.app/icon.png" alt="HappyDonate" class="h-8 w-8">
+                        <span class="ml-2 text-lg font-bold">HappyDonate</span>
+                    </div>
+                    <p class="text-gray-400">ระบบรับบริจาคสำหรับสตรีมเมอร์ที่ปลอดภัย และไม่มีค่าธรรมเนียม</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">ติดต่อเรา</h4>
+                    <p class="text-gray-400">อีเมล: support@happydonate.app</p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-gray-400 hover:text-white">Facebook</a>
+                        <a href="#" class="text-gray-400 hover:text-white">Discord</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">ลิงก์ด่วน</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#features" class="hover:text-white">ฟีเจอร์</a></li>
+                        <li><a href="#pricing" class="hover:text-white">แพ็คเกจ</a></li>
+                        <li><a href="#faq" class="hover:text-white">คำถามที่พบบ่อย</a></li>
+                        <li><a href="#" class="hover:text-white">นโยบายความเป็นส่วนตัว</a></li>
+                        <li><a href="#" class="hover:text-white">เงื่อนไขการใช้งาน</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 HappyDonate. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
