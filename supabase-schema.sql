@@ -1,5 +1,3 @@
--- ========================================================================
--- Freal Boxser: Supabase schema
 -- รันไฟล์นี้ทั้งหมดใน Supabase SQL Editor (Project > SQL Editor > New query)
 -- ========================================================================
 
@@ -34,9 +32,20 @@ create table if not exists public.app_donations (
 );
 
 -- เปิดใช้งาน Realtime สำหรับตารางที่ต้องการให้อัปเดตทันที (เช่น admin เห็นสลิปใหม่)
-alter publication supabase_realtime add table
-  public.app_users,
-  public.app_topups,
-  public.app_orders,
-  public.app_products,
-  public.app_donations;
+-- ใช้ DO block เช็คก่อนว่าตารางอยู่ใน publication แล้วหรือยัง เพื่อให้รันซ้ำได้โดยไม่ error
+do $$
+declare
+  tbl text;
+begin
+  foreach tbl in array array['app_users', 'app_topups', 'app_orders', 'app_products', 'app_donations']
+  loop
+    if not exists (
+      select 1 from pg_publication_tables
+      where pubname = 'supabase_realtime'
+        and schemaname = 'public'
+        and tablename = tbl
+    ) then
+      execute format('alter publication supabase_realtime add table public.%I', tbl);
+    end if;
+  end loop;
+end $$;
