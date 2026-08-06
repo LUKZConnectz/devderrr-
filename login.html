@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>เข้าสู่ระบบ | Freal Boxser</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Noto+Sans+Thai:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+</head>
+<body data-page="login">
+  <main class="login-shell">
+    <section class="login-card" aria-labelledby="login-title">
+      <a class="logo login-logo" href="login.html" aria-label="Freal Boxser login">
+        <span class="logo-main">FREAL</span>
+        <span class="logo-sub">BOXSER</span>
+      </a>
+      <div class="login-heading">
+        <span class="login-kicker">ยินดีต้อนรับกลับ</span>
+        <h1 id="login-title">เข้าสู่ระบบ</h1>
+        <p>ล็อคอินเพื่อเลือกซื้อสินค้า เติมเงิน และจัดการบัญชีในสไตล์ Freal Boxser</p>
+      </div>
+      <form class="login-form" data-login-form action="#" method="post">
+        <p class="login-error" data-login-error hidden></p>
+        <div class="form-field">
+          <label for="username">ชื่อผู้ใช้</label>
+          <div class="input-wrap">
+            <i data-lucide="user-round" aria-hidden="true"></i>
+            <input id="username" name="username" type="text" placeholder="เช่น cvoppy" autocomplete="username" />
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="password">รหัสผ่าน</label>
+          <div class="input-wrap">
+            <i data-lucide="lock-keyhole" aria-hidden="true"></i>
+            <input id="password" name="password" type="password" placeholder="กรอกรหัสผ่าน" autocomplete="current-password" />
+          </div>
+        </div>
+        <button class="pill login-submit" type="submit">
+          <i data-lucide="log-in" aria-hidden="true"></i>
+          <span>เข้าสู่ระบบ</span>
+        </button>
+      </form>
+      <p class="login-switch">ยังไม่มีบัญชี? <a href="register.html">สมัครสมาชิก</a></p>
+    </section>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+  <script src="supabase-config.js"></script>
+  <script src="supabase-sync.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

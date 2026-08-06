@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Freal Boxser Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Noto+Sans+Thai:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+</head>
+<body data-protected="true" data-page="home">
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="index.html" aria-label="Freal Boxser home"><span class="logo-main">FREAL</span><span class="logo-sub">BOXSER</span></a>
+      <button class="icon-btn hamburger-btn" type="button" aria-label="เปิดเมนู" aria-expanded="false" aria-controls="site-nav" data-menu-toggle><i data-lucide="menu"></i></button>
+      <nav class="toolbar" aria-label="main navigation" id="site-nav">
+        <a class="nav-link" href="index.html" data-nav="home"><i data-lucide="store"></i><span>ร้านค้า</span></a>
+        <a class="nav-link" href="cart.html" data-nav="cart"><i data-lucide="shopping-basket"></i><span>ตะกร้า</span><em data-cart-count>0</em></a>
+        <a class="nav-link" href="topup.html" data-nav="topup"><i data-lucide="wallet-cards"></i><span>เติมเงิน</span></a>
+        <a class="nav-link" href="orders.html" data-nav="orders"><i data-lucide="receipt-text"></i><span>ออเดอร์</span></a>
+        <a class="nav-link donate-link" href="donate.html" data-nav="donate"><i data-lucide="heart-handshake"></i><span>โดเนท</span></a>
+        <a class="nav-link admin-only" href="admin.html" data-nav="admin"><i data-lucide="settings"></i><span>แอดมิน</span></a>
+        <a class="pill user-pill" href="profile.html"><span class="avatar"><i data-lucide="badge-user"></i></span><span data-username>user</span></a>
+        <span class="pill wallet-chip" data-wallet-chip title="ยอดเงินคงเหลือ"><i data-lucide="wallet"></i><span data-wallet-balance-header>฿ 0.00</span></span>
+        <button class="icon-btn" type="button" aria-label="สลับโหมดสว่าง/มืด" data-theme-toggle><i data-lucide="sun-moon"></i></button>
+        <button class="pill logout-pill" type="button" data-logout>ออกจากระบบ</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-shell">
+    <section class="hero-wrap" aria-label="promotions" data-hero-slider>
+      <button class="slider-arrow arrow-left" type="button" aria-label="สไลด์ก่อนหน้า" data-slide-prev><i data-lucide="chevron-left" aria-hidden="true"></i></button>
+      <div class="hero-panel">
+        <article class="hero-slide is-active" data-slide>
+          <span>โปรโมชั่นแนะนำ</span>
+          <h1>Freal Boxser Deal</h1>
+          <p>กล่องโปรโมชันตรงกลางเลื่อนอัตโนมัติ พร้อมปุ่มควบคุมซ้าย-ขวา</p>
+        </article>
+        <article class="hero-slide" data-slide>
+          <span>เติมเงินไว</span>
+          <h1>Top up Bonus</h1>
+          <p>เติมเงินและรับการแจ้งเตือนหลังส่งยืนยันสำเร็จทันที</p>
+        </article>
+        <article class="hero-slide" data-slide>
+          <span>ระบบหลังบ้าน</span>
+          <h1>Admin Ready</h1>
+          <p>มีหน้าแอดมินแยกสำหรับตรวจสอบยอดขายและคำสั่งซื้อ</p>
+        </article>
+      </div>
+      <button class="slider-arrow arrow-right" type="button" aria-label="สไลด์ถัดไป" data-slide-next><i data-lucide="chevron-right" aria-hidden="true"></i></button>
+    </section>
+
+    <section class="stats-grid" aria-label="store statistics" data-stats-grid>
+      <article class="stat-card" data-stat="total-users">
+        <span class="stat-label">ผู้ใช้งานทั้งหมด</span>
+        <i class="stat-icon" data-lucide="users" aria-hidden="true"></i>
+        <strong data-stat-value>0</strong>
+        <em data-stat-flair>0</em>
+      </article>
+      <article class="stat-card" data-stat="users-today">
+        <span class="stat-label">ผู้ใช้งานวันนี้</span>
+        <i class="stat-icon" data-lucide="user-round-check" aria-hidden="true"></i>
+        <strong data-stat-value>0</strong>
+        <em data-stat-flair>0</em>
+      </article>
+      <article class="stat-card" data-stat="total-purchase">
+        <span class="stat-label">ยอดซื้อทั้งหมด</span>
+        <i class="stat-icon" data-lucide="shopping-bag" aria-hidden="true"></i>
+        <strong data-stat-value>฿ 0.00</strong>
+        <em data-stat-flair>฿0</em>
+      </article>
+      <article class="stat-card" data-stat="sales-today">
+        <span class="stat-label">ยอดขายวันนี้</span>
+        <i class="stat-icon" data-lucide="chart-no-axes-combined" aria-hidden="true"></i>
+        <strong data-stat-value>฿ 0.00</strong>
+        <em data-stat-flair>฿0</em>
+      </article>
+    </section>
+
+    <section class="product-grid" aria-label="popular products">
+      <article class="product-card featured">
+        <span class="badge red">สินค้ายอดนิยม</span>
+        <div class="product-image"></div>
+        <div class="product-body">
+          <h2>Night Vision Goggles</h2>
+          <p>อุปกรณ์มองกลางคืน เหมาะสำหรับภารกิจลับ...</p>
+          <strong class="price">฿ 3500.00</strong>
+        </div>
+      </article>
+
+      <article class="product-card"><div class="product-image"></div><div class="product-body"><h2>Night Vision Goggles</h2><p>อุปกรณ์มองกลางคืน เหมาะสำหรับภารกิจลับ...</p><strong class="price">฿ 3500.00</strong></div></article>
+      <article class="product-card"><div class="product-image"></div><div class="product-body"><h2>Night Vision Goggles</h2><p>อุปกรณ์มองกลางคืน เหมาะสำหรับภารกิจลับ...</p><strong class="price">฿ 3500.00</strong></div></article>
+      <article class="product-card"><div class="product-image"></div><div class="product-body"><h2>Night Vision Goggles</h2><p>อุปกรณ์มองกลางคืน เหมาะสำหรับภารกิจลับ...</p><strong class="price">฿ 3500.00</strong></div></article>
+      <article class="product-card"><div class="product-image"></div><div class="product-body"><h2>Night Vision Goggles</h2><p>อุปกรณ์มองกลางคืน เหมาะสำหรับภารกิจลับ...</p><strong class="price">฿ 3500.00</strong></div></article>
+
+      <article class="product-card"><span class="badge dark">สินค้ายอดนิยม</span><div class="product-image"></div><div class="product-body"><h2>Night Vision Goggles</h2><p>อุปกรณ์มองกลางคืน เหมาะสำหรับภารกิจลับ...</p><strong class="price">฿ 3500.00</strong></div></article>
+      <article class="product-card"><span class="badge dark">สินค้ายอดนิยม</span><div class="product-image"></div><div class="product-body"><h2>Night Vision Goggles</h2><p>อุปกรณ์มองกลางคืน เหมาะสำหรับภารกิจลับ...</p><strong class="price">฿ 3500.00</strong></div></article>
+      <article class="product-card"><span class="badge dark">สินค้ายอดนิยม</span><div class="product-image"></div><div class="product-body"><h2>Night Vision Goggles</h2><p>อุปกรณ์มองกลางคืน เหมาะสำหรับภารกิจลับ...</p><strong class="price">฿ 3500.00</strong></div></article>
+      <article class="product-card"><span class="badge dark">สินค้ายอดนิยม</span><div class="product-image"></div><div class="product-body"><h2>Night Vision Goggles</h2><p>อุปกรณ์มองกลางคืน เหมาะสำหรับภารกิจลับ...</p><strong class="price">฿ 3500.00</strong></div></article>
+      <article class="product-card"><span class="badge dark">สินค้ายอดนิยม</span><div class="product-image"></div><div class="product-body"><h2>Night Vision Goggles</h2><p>อุปกรณ์มองกลางคืน เหมาะสำหรับภารกิจลับ...</p><strong class="price">฿ 3500.00</strong></div></article>
+    </section>
+    </main>
+
+  <div class="product-modal" data-product-modal aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-product-title">
+    <div class="modal-card">
+      <button class="modal-close" type="button" aria-label="ปิดหน้าต่าง" data-close-modal><i data-lucide="x" aria-hidden="true"></i></button>
+      <div class="modal-image">
+        <span class="camera-tag"><i data-lucide="camera" aria-hidden="true"></i> Camera</span>
+      </div>
+      <div class="modal-content">
+        <h2 id="modal-product-title">Night Vision Goggles</h2>
+        <p data-modal-description>อุปกรณ์มองกลางคืน เหมาะสำหรับภารกิจลับหรือดูแลเวลากลางคืน</p>
+        <div class="modal-meta">
+          <strong class="modal-price" data-modal-price>฿ 3500.00</strong>
+          <span>จำนวนคงเหลือ <b data-remaining>4</b> ชิ้น</span>
+        </div>
+        <div class="modal-actions">
+          <label class="sr-only" for="product-quantity">จำนวนสินค้า</label>
+          <input id="product-quantity" data-quantity type="number" min="1" max="4" value="1" />
+          <button class="pill cart-action" type="button" data-add-cart><i data-lucide="shopping-basket" aria-hidden="true"></i><span>หยิบใส่ตะกร้า</span></button>
+          <button class="pill order-action" type="button" data-order-now><i data-lucide="package-check" aria-hidden="true"></i><span>สั่งซื้อ</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+  <script src="supabase-config.js"></script>
+  <script src="supabase-sync.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

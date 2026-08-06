@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>เติมเงินและเพิ่มแต้ม | Freal Boxser</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Noto+Sans+Thai:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+  <script src="https://unpkg.com/qrcode@1.5.3/build/qrcode.min.js" defer></script>
+</head>
+<body data-protected="true" data-page="topup">
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="index.html" aria-label="Freal Boxser home"><span class="logo-main">FREAL</span><span class="logo-sub">BOXSER</span></a>
+      <button class="icon-btn hamburger-btn" type="button" aria-label="เปิดเมนู" aria-expanded="false" aria-controls="site-nav" data-menu-toggle><i data-lucide="menu"></i></button>
+      <nav class="toolbar" aria-label="main navigation" id="site-nav">
+        <a class="nav-link" href="index.html" data-nav="home"><i data-lucide="store"></i><span>ร้านค้า</span></a>
+        <a class="nav-link" href="cart.html" data-nav="cart"><i data-lucide="shopping-basket"></i><span>ตะกร้า</span><em data-cart-count>0</em></a>
+        <a class="nav-link" href="topup.html" data-nav="topup"><i data-lucide="wallet-cards"></i><span>เติมเงิน</span></a>
+        <a class="nav-link" href="orders.html" data-nav="orders"><i data-lucide="receipt-text"></i><span>ออเดอร์</span></a>
+        <a class="nav-link donate-link" href="donate.html" data-nav="donate"><i data-lucide="heart-handshake"></i><span>โดเนท</span></a>
+        <a class="nav-link admin-only" href="admin.html" data-nav="admin"><i data-lucide="settings"></i><span>แอดมิน</span></a>
+        <a class="pill user-pill" href="profile.html"><span class="avatar"><i data-lucide="badge-user"></i></span><span data-username>user</span></a>
+        <span class="pill wallet-chip" data-wallet-chip title="ยอดเงินคงเหลือ"><i data-lucide="wallet"></i><span data-wallet-balance-header>฿ 0.00</span></span>
+        <button class="icon-btn" type="button" aria-label="สลับโหมดสว่าง/มืด" data-theme-toggle><i data-lucide="sun-moon"></i></button>
+        <button class="pill logout-pill" type="button" data-logout>ออกจากระบบ</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="topup-shell">
+    <section class="topup-card payment-card" aria-labelledby="payment-title" data-payment-card>
+      <h2 id="payment-title"><i data-lucide="landmark"></i> ช่องทางการชำระเงิน</h2>
+      <div class="payment-grid">
+        <div class="payment-qr-box">
+          <canvas data-promptpay-qr width="176" height="176"></canvas>
+          <p class="payment-qr-caption"><i data-lucide="smartphone-nfc"></i>สแกนจ่ายด้วยแอปธนาคาร (พร้อมเพย์)</p>
+        </div>
+        <div class="payment-details">
+          <div class="payment-row">
+            <span class="payment-label">ธนาคาร</span>
+            <strong data-pay-bank>—</strong>
+          </div>
+          <div class="payment-row">
+            <span class="payment-label">ชื่อบัญชี</span>
+            <strong data-pay-name>—</strong>
+          </div>
+          <div class="payment-row copyable">
+            <span class="payment-label">เลขบัญชี</span>
+            <strong data-pay-account>—</strong>
+            <button class="icon-btn copy-btn" type="button" data-copy-value data-copy-target="account" aria-label="คัดลอกเลขบัญชี"><i data-lucide="copy"></i></button>
+          </div>
+          <div class="payment-row copyable">
+            <span class="payment-label" data-pay-promptpay-label>พร้อมเพย์</span>
+            <strong data-pay-promptpay>—</strong>
+            <button class="icon-btn copy-btn" type="button" data-copy-value data-copy-target="promptpay" aria-label="คัดลอกเบอร์พร้อมเพย์"><i data-lucide="copy"></i></button>
+          </div>
+        </div>
+      </div>
+      <p class="payment-note"><i data-lucide="info"></i>โอนเงินตามยอดที่ต้องการ แล้วแนบสลิปด้านล่างเพื่อยืนยันการเติมเงิน</p>
+    </section>
+
+    <section class="topup-card" aria-labelledby="topup-title">
+      <h1 id="topup-title">
+        <span class="wallet-icon" aria-hidden="true"><i data-lucide="wallet-cards"></i></span>
+        เติมเงินและเพิ่มแต้ม
+      </h1>
+      <p class="topup-balance">ยอดเงินคงเหลือ: <strong data-wallet-balance-topup>฿ 0.00</strong></p>
+      <form class="topup-form-grid" data-topup-form action="#" method="post">
+        <label>จำนวนเงินที่โอน (บาท)<input name="topup-amount" type="number" min="1" step="0.01" placeholder="เช่น 300" required /></label>
+        <div class="admin-image-row topup-slip-row">
+          <label class="image-url-field">ลิงก์รูปสลิป (หรืออัปโหลดไฟล์ด้านล่าง)<input name="slip-url" type="text" placeholder="https://... (เว้นว่างได้ถ้าอัปโหลดไฟล์)" data-image-input /></label>
+          <label class="upload-btn"><input type="file" accept="image/*" data-image-file hidden /><span class="pill ghost-pill"><i data-lucide="upload"></i><span>อัปโหลดสลิป</span></span></label>
+          <div class="admin-image-preview topup-slip-preview" data-image-preview aria-hidden="true"><i data-lucide="image"></i></div>
+        </div>
+        <label>หมายเหตุ (ถ้ามี)<textarea name="topup-note" rows="2" placeholder="เช่น โอนจากธนาคารกสิกรไทย เวลา 14:32 น."></textarea></label>
+        <button class="pill topup-submit" type="submit"><i data-lucide="badge-plus" aria-hidden="true"></i>ส่งสลิปยืนยันการโอนเงิน</button>
+      </form>
+    </section>
+
+    <section class="topup-card topup-history-card" aria-labelledby="topup-history-title">
+      <h2 id="topup-history-title" class="topup-history-title"><i data-lucide="history"></i> ประวัติการเติมเงินของฉัน</h2>
+      <div class="topup-history" data-topup-history></div>
+    </section>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+  <script src="supabase-config.js"></script>
+  <script src="supabase-sync.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

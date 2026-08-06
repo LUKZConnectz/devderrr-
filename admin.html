@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ระบบหลังบ้าน | Freal Boxser</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Noto+Sans+Thai:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+</head>
+<body data-protected="true" data-page="admin" class="admin-page">
+  <header class="site-header admin-header">
+    <div class="header-inner">
+      <a class="logo" href="index.html" aria-label="Freal Boxser home"><span class="logo-main">FREAL</span><span class="logo-sub">BOXSER</span></a>
+      <button class="icon-btn hamburger-btn" type="button" aria-label="เปิดเมนู" aria-expanded="false" aria-controls="site-nav" data-menu-toggle><i data-lucide="menu"></i></button>
+      <nav class="toolbar" aria-label="admin navigation" id="site-nav">
+        <a class="nav-link" href="index.html"><i data-lucide="store"></i><span>หน้าร้าน</span></a>
+        <a class="nav-link" href="profile.html"><i data-lucide="user-round"></i><span>โปรไฟล์</span></a>
+        <a class="nav-link is-active" href="admin.html"><i data-lucide="settings"></i><span>หลังบ้าน</span></a>
+        <button class="icon-btn" type="button" aria-label="สลับโหมดสว่าง/มืด" data-theme-toggle><i data-lucide="sun-moon"></i></button>
+        <button class="pill user-pill" type="button"><span class="avatar"><i data-lucide="shield-user"></i></span><span data-username>admin</span></button>
+        <span class="pill wallet-chip" data-wallet-chip title="ยอดเงินคงเหลือ"><i data-lucide="wallet"></i><span data-wallet-balance-header>฿ 0.00</span></span>
+        <button class="pill logout-pill" type="button" data-logout>ออกจากระบบ</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="admin-shell">
+    <section class="admin-hero" aria-labelledby="admin-title">
+      <span class="login-kicker">Back Office</span>
+      <h1 id="admin-title">ระบบหลังบ้านแยกสำหรับจัดการร้าน</h1>
+      <p>ดูภาพรวมยอดขาย จัดการคำสั่งซื้อ สินค้า และผู้ใช้งานได้ในหน้าเดียว พร้อมรองรับมือถือ</p>
+    </section>
+
+    <section class="admin-metrics" aria-label="admin metrics">
+      <article><span>คำสั่งซื้อ</span><strong data-admin-orders>0</strong></article>
+      <article><span>ยอดขายรวม</span><strong data-admin-sales>฿ 0.00</strong></article>
+      <article><span>สินค้า</span><strong data-admin-products>10</strong></article>
+      <article><span>สลิปรอตรวจสอบ</span><strong data-admin-topup-pending>0</strong></article>
+    </section>
+
+    <section class="admin-grid">
+      <article class="admin-panel">
+        <div class="panel-head"><h2><i data-lucide="package-check"></i>จัดการคำสั่งซื้อ</h2><button class="pill" type="button" data-admin-refresh>รีเฟรช</button></div>
+        <div class="admin-orders" data-admin-order-list></div>
+      </article>
+
+      <article class="admin-panel">
+        <div class="panel-head"><h2><i data-lucide="scan-line"></i>ยืนยันสลิปการโอนเงิน</h2><button class="pill" type="button" data-admin-topup-refresh>รีเฟรช</button></div>
+        <div class="admin-topups" data-admin-topup-list></div>
+      </article>
+
+      <article class="admin-panel">
+        <div class="panel-head"><h2><i data-lucide="boxes"></i>จัดการสินค้า &amp; สต็อก</h2></div>
+        <form class="admin-form" data-admin-product-form>
+          <input type="hidden" name="product-id" value="" />
+          <div class="admin-form-grid">
+            <label>ชื่อสินค้า<input name="product-name" placeholder="เช่น Night Vision Goggles" required /></label>
+            <label>ราคา (บาท)<input name="product-price" type="number" min="0" step="0.01" placeholder="0" required /></label>
+            <label>สต็อกคงเหลือ<input name="product-stock" type="number" min="0" placeholder="0" required /></label>
+            <label>แจ้งเตือนเมื่อสต็อกต่ำกว่า<input name="product-low-stock" type="number" min="0" placeholder="3" /></label>
+          </div>
+          <label>รายละเอียด<textarea name="product-description" rows="2" placeholder="รายละเอียดสินค้า"></textarea></label>
+          <div class="admin-image-row">
+            <label class="image-url-field">รูปสินค้า (ลิงก์ URL หรืออัปโหลดไฟล์)<input name="product-image" type="text" placeholder="https://... (เว้นว่างได้ถ้าอัปโหลดไฟล์)" data-image-input /></label>
+            <label class="upload-btn"><input type="file" accept="image/*" data-image-file hidden /><span class="pill ghost-pill"><i data-lucide="upload"></i><span>อัปโหลดรูป</span></span></label>
+            <div class="admin-image-preview" data-image-preview aria-hidden="true"><i data-lucide="image"></i></div>
+          </div>
+          <div class="admin-form-actions">
+            <button class="pill" type="submit"><i data-lucide="save"></i><span data-submit-label>บันทึกสินค้า</span></button>
+            <button class="pill ghost-pill" type="button" data-cancel-edit hidden><i data-lucide="x"></i>ยกเลิกแก้ไข</button>
+          </div>
+        </form>
+        <div class="admin-products-toolbar">
+          <div class="input-wrap search-wrap"><i data-lucide="search"></i><input type="search" placeholder="ค้นหาสินค้า..." data-admin-product-search /></div>
+          <button class="pill ghost-pill" type="button" data-sort-toggle><i data-lucide="arrow-down-narrow-wide"></i><span>เรียงสต็อกน้อยสุด</span></button>
+        </div>
+        <p class="low-stock-flag" data-low-stock-summary hidden><i data-lucide="triangle-alert"></i><span></span></p>
+        <div class="admin-products-list" data-admin-products-list></div>
+      </article>
+
+      <article class="admin-panel">
+        <div class="panel-head"><h2><i data-lucide="users"></i>ผู้ใช้งานล่าสุด</h2></div>
+        <div class="admin-user-card"><span class="avatar"><i data-lucide="badge-user"></i></span><div><strong data-username>ผู้ใช้งาน</strong><p>ล็อคอินล่าสุดจากอุปกรณ์นี้</p></div></div>
+      </article>
+    </section>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+  <script src="supabase-config.js"></script>
+  <script src="supabase-sync.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

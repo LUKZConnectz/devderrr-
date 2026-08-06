@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>สมัครสมาชิก | Freal Boxser</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Noto+Sans+Thai:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+</head>
+<body data-page="register">
+  <main class="login-shell">
+    <section class="login-card" aria-labelledby="register-title">
+      <a class="logo login-logo" href="login.html" aria-label="Freal Boxser">
+        <span class="logo-main">FREAL</span>
+        <span class="logo-sub">BOXSER</span>
+      </a>
+      <div class="login-heading">
+        <span class="login-kicker">ยินดีต้อนรับ</span>
+        <h1 id="register-title">สมัครสมาชิก</h1>
+        <p>สร้างบัญชีใหม่เพื่อเลือกซื้อสินค้า เติมเงิน และจัดการบัญชีในสไตล์ Freal Boxser</p>
+      </div>
+      <form class="login-form" data-register-form action="#" method="post">
+        <p class="login-error" data-register-error hidden></p>
+        <div class="form-field">
+          <label for="display-name">ชื่อที่แสดง</label>
+          <div class="input-wrap">
+            <i data-lucide="badge-check" aria-hidden="true"></i>
+            <input id="display-name" name="displayName" type="text" placeholder="เช่น สมชาย ใจดี" autocomplete="name" />
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="reg-username">ชื่อผู้ใช้</label>
+          <div class="input-wrap">
+            <i data-lucide="user-round" aria-hidden="true"></i>
+            <input id="reg-username" name="username" type="text" placeholder="เช่น cvoppy" autocomplete="username" />
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="reg-password">รหัสผ่าน</label>
+          <div class="input-wrap">
+            <i data-lucide="lock-keyhole" aria-hidden="true"></i>
+            <input id="reg-password" name="password" type="password" placeholder="อย่างน้อย 6 ตัวอักษร" autocomplete="new-password" />
+          </div>
+          <p class="login-hint">ใช้ตัวอักษรอย่างน้อย 6 ตัวเพื่อความปลอดภัย</p>
+        </div>
+        <div class="form-field">
+          <label for="reg-password-confirm">ยืนยันรหัสผ่าน</label>
+          <div class="input-wrap">
+            <i data-lucide="lock-keyhole" aria-hidden="true"></i>
+            <input id="reg-password-confirm" name="passwordConfirm" type="password" placeholder="กรอกรหัสผ่านอีกครั้ง" autocomplete="new-password" />
+          </div>
+        </div>
+        <button class="pill login-submit" type="submit">
+          <i data-lucide="user-plus" aria-hidden="true"></i>
+          <span>สมัครสมาชิก</span>
+        </button>
+      </form>
+      <p class="login-switch">มีบัญชีอยู่แล้ว? <a href="login.html">เข้าสู่ระบบ</a></p>
+    </section>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+  <script src="supabase-config.js"></script>
+  <script src="supabase-sync.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
