@@ -157,8 +157,9 @@ function compressImageFile(file, maxDim = 1000, quality = 0.72) {
 }
 
 function getProducts() {
-  const products = readList(PRODUCTS_KEY);
-  return products.length ? products : Array.from({ length: 10 }, (_, index) => ({ ...PRODUCT, id: `${PRODUCT.id}-${index + 1}`, featured: index === 0 }));
+  // คืนค่ารายการสินค้าตามที่มีจริงเท่านั้น ไม่สร้างสินค้าตัวอย่างขึ้นมาเองเมื่อว่างเปล่า
+  // (เดิมมีการสุ่มสร้างสินค้า default กลับมาอัตโนมัติเมื่อแอดมินลบสินค้าออกหมด ทำให้ดูเหมือนสินค้า/ตะกร้าโผล่มาเอง)
+  return readList(PRODUCTS_KEY);
 }
 
 function saveProducts(products) { writeList(PRODUCTS_KEY, products); }
@@ -644,7 +645,10 @@ function initStore() {
 function renderStoreProducts() {
   const grid = document.querySelector('.product-grid');
   if (!grid) return;
-  grid.innerHTML = getProducts().map((product, index) => `<article class="product-card ${product.featured || index === 0 ? 'featured' : ''}" data-product-id="${escapeHTML(product.id)}" tabindex="0" role="button"><span class="badge ${product.featured || index === 0 ? 'red' : 'dark'}">${product.featured || index === 0 ? 'สินค้าแนะนำ' : 'สินค้ายอดนิยม'}</span><div class="product-image"${product.image ? ` style="background-image:url('${escapeHTML(product.image)}');background-size:contain;background-repeat:no-repeat;background-position:center;background-color:#0c0d10;filter:none;"` : ''}></div><div class="product-body"><h2>${escapeHTML(product.name)}</h2><p>${escapeHTML(product.description)}</p><strong class="price">${formatMoney(product.price)}</strong>${Number(product.stock || 0) <= 0 ? '<em class="stock-out">สินค้าหมด</em>' : ''}</div></article>`).join('');
+  const products = getProducts();
+  grid.innerHTML = products.length
+    ? products.map((product, index) => `<article class="product-card ${product.featured || index === 0 ? 'featured' : ''}" data-product-id="${escapeHTML(product.id)}" tabindex="0" role="button"><span class="badge ${product.featured || index === 0 ? 'red' : 'dark'}">${product.featured || index === 0 ? 'สินค้าแนะนำ' : 'สินค้ายอดนิยม'}</span><div class="product-image"${product.image ? ` style="background-image:url('${escapeHTML(product.image)}');background-size:contain;background-repeat:no-repeat;background-position:center;background-color:#0c0d10;filter:none;"` : ''}></div><div class="product-body"><h2>${escapeHTML(product.name)}</h2><p>${escapeHTML(product.description)}</p><strong class="price">${formatMoney(product.price)}</strong>${Number(product.stock || 0) <= 0 ? '<em class="stock-out">สินค้าหมด</em>' : ''}</div></article>`).join('')
+    : '<p class="empty-state">ยังไม่มีสินค้าในร้านตอนนี้</p>';
 }
 
 function initHeroSlider() {

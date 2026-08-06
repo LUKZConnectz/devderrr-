@@ -62,3 +62,11 @@ begin
     end if;
   end loop;
 end $$;
+
+-- ปิด RLS สำหรับตารางเหล่านี้ เพื่อให้ role anon (เว็บฝั่ง client) เขียน/อ่านข้อมูลได้
+-- (เหมาะสำหรับแอปทดสอบ/เดโม — ถ้าจะใช้งานจริงกับข้อมูลอ่อนไหว ควรตั้ง policy แทนการปิด RLS ทั้งหมด)
+alter table public.app_users disable row level security;
+alter table public.app_topups disable row level security;
+alter table public.app_orders disable row level security;
+alter table public.app_products disable row level security;
+alter table public.app_donations disable row level security;
