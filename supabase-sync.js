@@ -22,6 +22,15 @@
     return window.supabaseClient;
   }
 
+  function debugAlert(message) {
+    // แจ้ง error ของ Supabase แบบเห็นได้บนหน้าจอ (ชั่วคราว เพื่อ debug บนมือถือ/iPad ที่เปิด console ไม่สะดวก)
+    if (window.showAlert) {
+      window.showAlert({ title: 'Supabase error', message, type: 'error' });
+    } else {
+      console.error('[supabase debug]', message);
+    }
+  }
+
   async function pullTable(key) {
     const table = TABLE_MAP[key];
     if (!table || !client()) return;
@@ -32,12 +41,14 @@
         .order('updated_at', { ascending: false });
       if (error) {
         console.error('[supabase] pull error', table, error.message);
+        debugAlert(`pull ${table}: ${error.message}`);
         return;
       }
       const list = (data || []).map((row) => row.data);
       localStorage.setItem(key, JSON.stringify(list));
     } catch (err) {
       console.error('[supabase] pull exception', table, err);
+      debugAlert(`pull ${table} exception: ${err.message || err}`);
     }
   }
 
@@ -58,7 +69,7 @@
           .map((item) => ({ id: String(item.id), data: item, updated_at: new Date().toISOString() }));
         if (rows.length) {
           const { error } = await client().from(table).upsert(rows, { onConflict: 'id' });
-          if (error) console.error('[supabase] push upsert error', table, error.message);
+          if (error) { console.error('[supabase] push upsert error', table, error.message); debugAlert(`push ${table}: ${error.message}`); }
         }
       }
 
@@ -68,11 +79,14 @@
         const toDelete = existing.map((row) => row.id).filter((id) => !ids.includes(id));
         if (toDelete.length) {
           const { error: delErr } = await client().from(table).delete().in('id', toDelete);
-          if (delErr) console.error('[supabase] push delete error', table, delErr.message);
+          if (delErr) { console.error('[supabase] push delete error', table, delErr.message); debugAlert(`delete ${table}: ${delErr.message}`); }
         }
+      } else if (selErr) {
+        debugAlert(`select-ids ${table}: ${selErr.message}`);
       }
     } catch (err) {
       console.error('[supabase] push exception', table, err);
+      debugAlert(`push ${table} exception: ${err.message || err}`);
     }
   }
 

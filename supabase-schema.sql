@@ -1,3 +1,4 @@
+-- Freal Boxser: Supabase schema
 -- รันไฟล์นี้ทั้งหมดใน Supabase SQL Editor (Project > SQL Editor > New query)
 -- ========================================================================
 
@@ -31,8 +32,20 @@ create table if not exists public.app_donations (
   updated_at timestamptz not null default now()
 );
 
--- เปิดใช้งาน Realtime สำหรับตารางที่ต้องการให้อัปเดตทันที (เช่น admin เห็นสลิปใหม่)
--- ใช้ DO block เช็คก่อนว่าตารางอยู่ใน publication แล้วหรือยัง เพื่อให้รันซ้ำได้โดยไม่ error
+-- ให้สิทธิ์ role anon/authenticated เข้าถึงตารางผ่าน Data API (REST/supabase-js)
+-- จำเป็นสำหรับ Supabase โปรเจกต์ที่สร้างหลัง 30 พ.ค. 2026 เป็นต้นไป
+-- (ค่า default เปลี่ยนเป็น "ไม่เปิดให้อัตโนมัติ" แล้ว ต้อง grant เอง)
+grant usage on schema public to anon, authenticated;
+
+grant select, insert, update, delete on table
+  public.app_users,
+  public.app_topups,
+  public.app_orders,
+  public.app_products,
+  public.app_donations
+to anon, authenticated;
+
+-- เปิดใช้งาน Realtime แบบเช็คก่อนว่ามีอยู่แล้วหรือยัง (รันซ้ำได้ไม่ error)
 do $$
 declare
   tbl text;
